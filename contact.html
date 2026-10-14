@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact Us | Golden Star Planet Hotel and Suite</title>
+  <meta name="description" content="Call, WhatsApp or email Golden Star Planet Hotel and Suite. Find our address, check-in times and how to reach the front desk.">
+  <meta name="theme-color" content="#0b1b3a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow eyebrow-light">Contact</p>
+        <h1>We're happy to help</h1>
+        <p class="lead">Questions about rooms, prices or your booking? Reach us the way that suits you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-cards">
+          <div class="card pad reveal">
+            <h2>Reach us</h2>
+            <ul class="contact-list">
+              <li><small>Phone</small><a data-site="phone-link" href="#"></a></li>
+              <li><small>WhatsApp</small><a class="btn btn-wa btn-sm" data-site="wa-link" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+              <li><small>Email</small><a data-site="email-link" href="#"></a></li>
+              <li><small>Address</small><span data-site="address"></span></li>
+              <li><small>Check-in</small><span data-site="checkIn"></span></li>
+              <li><small>Check-out</small><span data-site="checkOut"></span></li>
+            </ul>
+          </div>
+
+          <form class="card pad reveal" style="--i:1" id="contact-form" novalidate>
+            <h2>Send us a message</h2>
+            <div class="field">
+              <label for="c-name">Your name</label>
+              <input id="c-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message" rows="4" required></textarea>
+              <p class="error" data-error="message" aria-live="polite"></p>
+            </div>
+            <button class="btn btn-gold btn-block" type="submit">Send on WhatsApp</button>
+            <p class="fine">This opens WhatsApp with your message ready to send.</p>
+          </form>
+        </div>
+
+        <div class="map reveal" id="map-embed"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

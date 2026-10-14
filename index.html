@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Golden Star Planet Hotel and Suite | Rooms, Suites and Online Booking</title>
+  <meta name="description" content="Golden Star Planet Hotel and Suite: comfortable rooms and elegant suites with clear prices. Send a booking request online and pay securely by card or bank transfer once your room is confirmed.">
+  <meta name="theme-color" content="#0b1b3a">
+  <meta property="og:title" content="Golden Star Planet Hotel and Suite">
+  <meta property="og:description" content="Comfortable rooms and elegant suites. See prices, request a booking, pay once confirmed.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg" data-hero-bg></div>
+      <div class="container hero-inner">
+        <p class="eyebrow eyebrow-light reveal">Welcome to</p>
+        <h1 class="reveal" style="--i:1">Golden Star Planet <span>Hotel &amp; Suite</span></h1>
+        <p class="lead reveal" style="--i:2">Comfortable rooms, elegant suites and attentive service. See our prices, send a booking request in minutes, and pay securely once your room is confirmed.</p>
+        <div class="hero-actions reveal" style="--i:3">
+          <a class="btn btn-gold btn-lg" href="booking.html">Request a booking</a>
+          <a class="btn btn-ghost-light btn-lg" href="rooms.html">View rooms &amp; prices</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Availability bar -->
+    <section class="avail-wrap" aria-label="Start your booking">
+      <div class="container">
+        <form class="card avail" id="avail-form" action="booking.html" method="get">
+          <div class="field">
+            <label for="a-checkin">Check-in</label>
+            <input id="a-checkin" name="checkin" type="date" required>
+          </div>
+          <div class="field">
+            <label for="a-checkout">Check-out</label>
+            <input id="a-checkout" name="checkout" type="date" required>
+          </div>
+          <div class="field">
+            <label for="a-guests">Guests</label>
+            <input id="a-guests" name="guests" type="number" min="1" max="10" value="2" inputmode="numeric" required>
+          </div>
+          <button class="btn btn-navy btn-lg" type="submit">Check &amp; request</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- How booking works -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Simple and safe</p>
+          <h2>Book first, pay once it's confirmed</h2>
+          <p>You never pay for a room that isn't available. Here is how it works.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal" style="--i:0"><span class="step-num">1</span><h3>Choose your room</h3><p>See the price per night and your total before you do anything.</p></li>
+          <li class="step reveal" style="--i:1"><span class="step-num">2</span><h3>Send your request</h3><p>Fill in your dates and details. It opens WhatsApp with everything filled in.</p></li>
+          <li class="step reveal" style="--i:2"><span class="step-num">3</span><h3>We confirm availability</h3><p>Our team replies quickly and sends you a secure payment link.</p></li>
+          <li class="step reveal" style="--i:3"><span class="step-num">4</span><h3>Pay by card or transfer</h3><p>Pay the exact amount, and receive your confirmation.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Featured rooms -->
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Rooms &amp; suites</p>
+          <h2>Find the right room for your stay</h2>
+        </div>
+        <div class="grid-rooms" id="featured-rooms"></div>
+        <p class="center mt"><a class="btn btn-ghost" href="rooms.html">See all rooms &amp; prices</a></p>
+      </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Comfort, covered</p>
+          <h2>What you can expect</h2>
+        </div>
+        <ul class="facility-grid" id="facilities"></ul>
+      </div>
+    </section>
+
+    <!-- Gallery (only shows when you add photos in config.js) -->
+    <section class="section section-tint" id="gallery-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Take a look</p>
+          <h2>Inside the hotel</h2>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div>
+          <h2>Ready to stay with us?</h2>
+          <p>Send your request now. We'll confirm availability and send your payment link.</p>
+        </div>
+        <a class="btn btn-gold btn-lg" href="booking.html">Request a booking</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

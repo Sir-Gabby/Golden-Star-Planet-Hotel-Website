@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Request a Booking | Golden Star Planet Hotel and Suite</title>
+  <meta name="description" content="Choose your room and dates, see your total, and send a booking request to Golden Star Planet Hotel and Suite. Pay only after your room is confirmed.">
+  <meta name="theme-color" content="#0b1b3a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="booking.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow eyebrow-light">Reservations</p>
+        <h1>Request a booking</h1>
+        <p class="lead">Takes about a minute. <strong>You pay nothing now.</strong> We confirm availability first, then send you a secure payment link.</p>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <noscript><div class="notice notice-warn">Please turn on JavaScript to use the booking form, or message us on WhatsApp instead.</div></noscript>
+
+        <div class="booking-grid" id="booking-layout">
+          <form class="card form-card" id="booking-form" novalidate>
+            <h2>Your stay</h2>
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="room">Room or suite</label>
+                <select id="room" name="room" required></select>
+                <p class="error" data-error="room" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="checkin">Check-in</label>
+                <input id="checkin" name="checkin" type="date" required>
+                <p class="error" data-error="checkin" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="checkout">Check-out</label>
+                <input id="checkout" name="checkout" type="date" required>
+                <p class="error" data-error="checkout" aria-live="polite"></p>
+              </div>
+              <div class="field span-2">
+                <label for="guests">Guests</label>
+                <input id="guests" name="guests" type="number" min="1" max="10" value="2" inputmode="numeric" required>
+                <p class="error" data-error="guests" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <h2 class="mt">Your details</h2>
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+                <p class="error" data-error="name" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="phone">Phone (WhatsApp if possible)</label>
+                <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0801 234 5678" required>
+                <p class="error" data-error="phone" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" required>
+                <p class="error" data-error="email" aria-live="polite"></p>
+              </div>
+              <div class="field span-2">
+                <label for="notes">Special requests <span class="optional">(optional)</span></label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Early check-in, airport pickup, extra bed..."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn-gold btn-lg btn-block mt" type="submit">Send booking request</button>
+            <p class="fine">By sending this request you agree to our <a href="policies.html">policies</a>. No payment is taken on this page.</p>
+          </form>
+
+          <aside class="card summary" aria-label="Booking summary">
+            <h2>Your summary</h2>
+            <div class="summary-room">
+              <strong id="sum-room">Room</strong>
+              <span id="sum-beds" class="muted"></span>
+            </div>
+            <dl class="summary-list" aria-live="polite">
+              <div><dt>Dates</dt><dd id="sum-dates">Choose your dates</dd></div>
+              <div><dt>Nights</dt><dd id="sum-nights" class="num">&mdash;</dd></div>
+              <div><dt>Rate</dt><dd id="sum-rate" class="num"></dd></div>
+              <div><dt>Subtotal</dt><dd id="sum-subtotal" class="num">&mdash;</dd></div>
+              <div id="sum-service-row" hidden><dt id="sum-service-label">Service charge</dt><dd id="sum-service" class="num">&mdash;</dd></div>
+              <div class="summary-total"><dt>Total</dt><dd id="sum-total" class="num">&mdash;</dd></div>
+            </dl>
+            <p class="fine">You pay this amount <strong>only after</strong> we confirm availability. We'll send a secure link for card, bank or transfer payment.</p>
+          </aside>
+        </div>
+
+        <section class="card pad success" id="booking-success" hidden aria-live="polite"></section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile total bar -->
+  <div class="mobile-total" id="mobile-total">
+    <div>
+      <strong class="num" id="mobile-total-amount">Pick dates</strong>
+      <small id="mobile-total-note">Total shows here</small>
+    </div>
+    <button class="btn btn-gold" type="submit" form="booking-form">Send request</button>
+  </div>
+
+  <div id="site-footer"></div>
+</body>
+</html>

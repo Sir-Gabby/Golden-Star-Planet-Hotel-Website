@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Staff: Payment Link Maker | Golden Star Planet Hotel and Suite</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1b3a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="staff.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="section">
+    <div class="container narrow">
+      <p class="eyebrow">Staff only</p>
+      <h1>Payment link maker</h1>
+      <p class="lead-dark">After you confirm a room is free, fill this in, copy the link and send it to the guest. This page is not linked anywhere on the website.</p>
+
+      <form class="card form-card" id="staff-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="s-ref">Booking reference</label>
+            <div class="inline-field">
+              <input id="s-ref" name="ref" type="text" autocapitalize="characters" placeholder="GSP-261010-K7Q2">
+              <button class="btn btn-ghost btn-sm" id="make-ref" type="button">Generate</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="s-amount">Amount (&#8358;)</label>
+            <input id="s-amount" name="amount" type="number" min="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="s-room">Room</label>
+            <select id="s-room" name="room"></select>
+          </div>
+          <div class="field">
+            <label for="s-guests">Guests</label>
+            <input id="s-guests" name="guests" type="number" min="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="s-in">Check-in</label>
+            <input id="s-in" name="checkin" type="date">
+          </div>
+          <div class="field">
+            <label for="s-out">Check-out</label>
+            <input id="s-out" name="checkout" type="date">
+          </div>
+          <div class="field span-2">
+            <label for="s-name">Guest name</label>
+            <input id="s-name" name="name" type="text" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="s-phone">Guest WhatsApp number</label>
+            <input id="s-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" placeholder="0801 234 5678">
+          </div>
+          <div class="field">
+            <label for="s-email">Guest email</label>
+            <input id="s-email" name="email" type="email" inputmode="email" autocomplete="off" autocapitalize="none">
+          </div>
+        </div>
+        <p class="error" id="staff-error" aria-live="polite"></p>
+        <button class="btn btn-gold btn-lg btn-block" type="submit">Make payment link</button>
+        <p class="fine">Tip: choosing the room and dates fills in the amount for you. You can still change it.</p>
+      </form>
+
+      <section class="card pad mt success" id="staff-output" hidden aria-live="polite">
+        <h2>Ready to send</h2>
+        <div class="field">
+          <label for="staff-link">Payment link</label>
+          <div class="inline-field">
+            <input id="staff-link" type="text" readonly>
+            <button class="btn btn-ghost btn-sm swap" id="staff-copy" type="button">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="staff-message">Message to the guest</label>
+          <textarea id="staff-message" rows="9" readonly></textarea>
+          <div class="actions-row">
+            <button class="btn btn-ghost swap" id="staff-message-copy" type="button">Copy message</button>
+            <a class="btn btn-wa" id="staff-wa" href="#" target="_blank" rel="noopener" hidden>Send on WhatsApp</a>
+          </div>
+        </div>
+        <div class="notice notice-warn">
+          <strong>Always verify before confirming.</strong> Open your Paystack dashboard (or bank app) and check that the amount received matches this booking before you confirm the room to the guest.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Complete Your Payment | Golden Star Planet Hotel and Suite</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1b3a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.paystack.co/v1/inline.js" defer></script>
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="pay.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="section">
+    <div class="container narrow">
+      <noscript><div class="notice notice-warn">Please turn on JavaScript to see your payment details, or message the hotel on WhatsApp.</div></noscript>
+
+      <!-- Broken or incomplete link -->
+      <div class="card pad" id="pay-invalid" hidden>
+        <h1>This payment link isn't complete</h1>
+        <p>Please use the link the hotel sent you, or message us and we'll send a fresh one.</p>
+        <p><a class="btn btn-wa" id="pay-invalid-wa" href="#" target="_blank" rel="noopener">Message the hotel on WhatsApp</a></p>
+      </div>
+
+      <!-- Payment -->
+      <div id="pay-main" hidden>
+        <p class="eyebrow">Secure payment</p>
+        <h1>Complete your booking payment</h1>
+        <p class="lead-dark">Your room is available. Pay the amount below to confirm it. We hold your room for <strong id="pay-hold">a few hours</strong> while you pay.</p>
+
+        <section class="card pad" aria-label="Booking details">
+          <h2>Your booking</h2>
+          <dl class="summary-list">
+            <div><dt>Reference</dt><dd class="num" id="pay-ref"></dd></div>
+            <div><dt>Guest</dt><dd id="pay-name"></dd></div>
+            <div><dt>Room</dt><dd id="pay-room"></dd></div>
+            <div><dt>Stay</dt><dd id="pay-dates"></dd></div>
+            <div><dt>Guests</dt><dd id="pay-guests"></dd></div>
+            <div class="summary-total"><dt>Amount to pay</dt><dd class="num" id="pay-amount"></dd></div>
+          </dl>
+        </section>
+
+        <section class="card pad mt" aria-label="Choose how to pay">
+          <h2>Choose how to pay</h2>
+          <div class="tabs" role="tablist" aria-label="Payment method">
+            <button class="tab" role="tab" id="tab-card" type="button" aria-selected="true" aria-controls="panel-card">Card, bank or USSD</button>
+            <button class="tab" role="tab" id="tab-transfer" type="button" aria-selected="false" aria-controls="panel-transfer" tabindex="-1">Bank transfer</button>
+          </div>
+
+          <div class="tab-panel" id="panel-card" role="tabpanel" aria-labelledby="tab-card">
+            <p>Pay safely on Paystack with your debit card, bank app or USSD. You'll get an instant receipt by email.</p>
+            <div class="field">
+              <label for="pay-email">Email for your receipt</label>
+              <input id="pay-email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" required>
+              <p class="error" id="pay-email-error" aria-live="polite"></p>
+            </div>
+            <button class="btn btn-gold btn-lg btn-block" id="btn-paystack" type="button">Pay <span id="pay-amount-btn" class="num"></span> securely</button>
+            <p class="fine" id="paystack-note" hidden></p>
+            <p class="fine">Card details are entered on Paystack's secure window. We never see or store them.</p>
+          </div>
+
+          <div class="tab-panel" id="panel-transfer" role="tabpanel" aria-labelledby="tab-transfer" hidden>
+            <p>Send exactly <strong class="num" id="transfer-amount"></strong> to the account below and use your booking reference as the narration.</p>
+            <ul class="copy-list">
+              <li><div><small>Bank</small><strong id="bank-name"></strong></div></li>
+              <li><div><small>Account name</small><strong id="bank-account-name"></strong></div></li>
+              <li><div><small>Account number</small><strong class="num big" id="bank-account-number"></strong></div><button class="btn btn-ghost btn-sm swap" id="copy-account" type="button">Copy</button></li>
+              <li><div><small>Amount</small><strong class="num" id="transfer-amount-2">Exactly as shown above</strong></div><button class="btn btn-ghost btn-sm swap" id="copy-amount" type="button">Copy</button></li>
+              <li><div><small>Narration / reference</small><strong class="num" id="transfer-narration"></strong></div><button class="btn btn-ghost btn-sm swap" id="copy-narration" type="button">Copy</button></li>
+            </ul>
+            <a class="btn btn-wa btn-lg btn-block" id="btn-wa-proof" href="#" target="_blank" rel="noopener">I've paid: send proof on WhatsApp</a>
+            <p class="fine">Your booking is confirmed once we see the payment. This can take a few minutes during working hours.</p>
+          </div>
+        </section>
+
+        <p class="fine center mt">Problem paying? <a id="pay-help-wa" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
+      </div>
+
+      <!-- Success -->
+      <div class="card pad success" id="pay-success" hidden aria-live="polite">
+        <p class="eyebrow">Payment received</p>
+        <h1 id="pay-success-title" tabindex="-1">Thank you! Your payment went through.</h1>
+        <p class="lead-dark">Booking reference: <strong class="num" id="success-ref"></strong></p>
+        <p>Paystack reference: <span class="num" id="success-paystack-ref"></span></p>
+        <p>We're verifying your payment and will send your booking confirmation shortly. Tap below to let us know on WhatsApp so we can confirm faster.</p>
+        <p><a class="btn btn-wa btn-lg" id="btn-wa-receipt" href="#" target="_blank" rel="noopener">Tell us on WhatsApp</a></p>
+        <p class="fine">Keep your reference handy. Your booking is confirmed once the hotel has verified your payment.</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>
